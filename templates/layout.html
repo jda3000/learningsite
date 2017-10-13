@@ -1,0 +1,51 @@
+{% load static from staticfiles %}
+{% load socialaccount %}
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>{% block title %} {% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% load bootstrap3 %}
+
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+
+    <body>
+        {% block bootstrap3_content %}
+        <div class="container">
+        <nav class="nav navbar-default">
+            <div class="navbar-header">
+                 <a class="navbar-brand" href="{% url 'home' %}">LNG</a>
+            </div>
+            <div id="navbar" class="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a class="btn btn-link btn-xs" href="{% url 'courses:courses_list' %}">Courses</a></li>
+                {% if course.title %}
+                <li><a class="btn btn-link btn-xs" href="">: {{ course.title }}</a></li>
+                {% elif step.course.title %}
+                <li><a class="btn btn-link btn-xs" href="{% url 'courses:course' step.course.pk %}">: {{ step.course.title }}</a></li>
+                <li><a class="btn btn-link btn-xs" href="">: {{ step.title }}</a></li>
+                {% endif %}
+            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">Your Account</a></li>
+
+                </ul>
+            </div>
+
+        </nav>
+
+            {% block content %} {% endblock content %}
+
+        </div>
+    </body>
+        {% bootstrap_messages %}
+
+        {% endblock %}
+
+
+</html>

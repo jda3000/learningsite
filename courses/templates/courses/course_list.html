@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}All Our Courses{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for course in courses %}
+        <div class="col-sm-4">
+            <a href="{% url 'courses:course' course.pk %}"><h2>{{ course.title }}</h2></a>
+            {{ course.description }}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

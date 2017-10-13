@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Welcome to Learning {% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>Welcome to Learning</h1>
+<img src="{% static 'images/logo.jpg' %}" class="img-rounded img-responsive" >
+</div>
+{% endblock %}
